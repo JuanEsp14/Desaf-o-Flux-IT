@@ -1,0 +1,100 @@
+<div class="table-responsive">
+<table class="table table-dark">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let art of artistas; let i = index">
+      <div class="container row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg3">
+          <div style="align:center">
+            <th scope="row"><img src="{{art.images[2].url}}" class="img-fluid rounded-circle hoverable" alt="Responsive image"></th>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg4">
+          <td ><br><br><h3>{{art.name}}</h3></td>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg2">
+          <div style="text-align:center">
+            <td><br><br><h5>Popularidad: {{art.popularity}}</h5></td>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg2">
+          <div style="text-align:center">
+            <td><br><br><h5>Seguidores: {{art.followers.total}}</h5></td>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-1 col-lg1">
+          <td>
+            <div style="text-align:center">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <button class="btn btn-outline-success" (click)="generos(i)" data-toggle="modal" data-target="#genModal">
+                    Géneros</button>
+                  <!-- Modal -->
+                  <div class="modal fade modal-dark" id="genModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-danger">
+                          <h5 class="modal-title">
+                            <kbd>Géneros: </kbd>
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <kbd>{{imprimir}}</kbd>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item active">
+                  <div class="text-center ">
+                    <a class="btn btn-outline-success my-2 my-sm-0" routerLink="/detalles/{{art.id}}">
+                      Detalle</a>
+                  </div>
+                </li>
+                <li class="nav-item active">
+                  <a class="btn btn-outline-success my-2 my-sm-0" href="http://open.spotify.com/artist/{{art.id}}"
+                    target="_blank">Abrir en Spotify</a>
+                </li>
+                <li class="nav-item active">
+                  <button class="btn btn-outline-success" (click)="response(i)"
+                  data-toggle="modal" data-target="#resModal">Response</button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="resModal" tabindex="-1" role="dialog" >
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">
+                            <kbd>Respuesta JSON: </kbd>
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <kbd>{{JSONres}}</kbd>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </td>
+          </div>
+        </div>
+      </tr>
+  </tbody>
+</table>
+</div>

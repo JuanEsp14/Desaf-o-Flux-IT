@@ -1,0 +1,42 @@
+<div class="table-responsive">
+<table class="table table-dark">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <div class="container row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg6">
+          <th scope="row">
+            <div style="text-align:center">
+              <img src="{{artista.images[2].url}}" class="img-fluid rounded-circle hoverable" alt="Responsive image">
+              <h2>{{artista.name}}</h2>
+            </div>
+            <h5>Popularidad: </h5> <h6>{{artista.popularity}}</h6>
+            <h5>Seguidores: </h5> <h6>{{artista.followers.total}}</h6>
+            <h5>Generos:</h5>
+            <h6>
+              <span *ngFor = "let gen of artista.genres">
+                {{gen}}
+              </span>
+            </h6>
+            <h5>Spotify ID: </h5><h6>{{artista.id}}</h6>
+          </th>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg6">
+          <td>
+            <h5>Albums: </h5>
+            <h6>
+              <div *ngFor = "let album of albums">                
+                  <a class="btn btn-outline-success my-2 my-sm-0" href="https://open.spotify.com/album/{{album.id}}"
+                    target="_blank">{{album.name}}</a>
+              </div>
+            </h6>
+          </td>
+        </div>
+        </div>
+      </tr>
+  </tbody>
+</table>
+</div>

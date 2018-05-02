@@ -1,0 +1,25 @@
+{
+  "name": "desafio",
+  "description": "Desafio propuesto por Flux IT, para desarrollar una aplicación web mediante el uso de diferentes tecnologias",
+  "main": "index.html",
+  "authors": [
+    "Espinoza Juan"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "desafio",
+    "fluxIT"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.1"
+  }
+}

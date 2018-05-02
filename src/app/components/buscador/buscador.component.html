@@ -1,0 +1,103 @@
+<h2>Buscador</h2>
+
+<form (ngSubmit)="searchMusic()">
+  <div class="container row">
+    <!-- Nombre del artista o album -->
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg2">
+      <div class="md-form">
+          <i class="fa fa-user prefix grey-text"></i>
+          <input type="text" id="searchStr" name="searchStr"
+          [(ngModel)]="searchStr" class="form-control" placeholder="Nombre">
+      </div>
+    </div>
+
+    <!-- Tipo artista o album -->
+    <div style="text-align:center" class="col-xs-12 col-sm-12 col-md-2 col-lg2">
+      <div class="md-form">
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input type="text" id="searchType" name="searchType"
+          [(ngModel)]="searchType" class="form-control" placeholder="artist/album">
+      </div>
+    </div>
+
+    <!-- Numero de offset -->
+    <div style="text-align:center" class="col-xs-12 col-sm-12 col-md-2 col-lg2">
+      <div class="md-form">
+          <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+          <input type="text" id="searchOffset" name="searchOffset"
+          [(ngModel)]="searchOffset" class="form-control" placeholder="Offset">
+      </div>
+    </div>
+
+    <!-- Número de límite -->
+    <div style="text-align:center" class="col-xs-12 col-sm-12 col-md-2 col-lg2">
+      <div class="md-form">
+          <i class="fa fa-lock prefix grey-text"></i>
+          <input type="text" id="searchLimit" name="searchLimit"
+          [(ngModel)]="searchLimit" class="form-control" placeholder="Limit">
+      </div>
+    </div>
+
+    <!-- Botón para salvar el formulario -->
+    <div style="text-align:center" class="col-xs-12 col-sm-12 col-md-2 col-lg2">
+      <div class="text-center">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </div>
+    </div>
+  </div>
+</form>
+<br>
+
+<div *ngIf = "searchType == 'artist'">
+  <div *ngIf = "resArtits">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Artista</th>
+              <th scope="col">Generos</th>
+              <th scope="col">Popularidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let art of resArtits">
+              <th scope="row"><h3>{{art.name}}</h3></th>
+              <td>
+                <span *ngFor = "let gen of art.genres">
+                  {{gen}}
+                </span>
+              </td>
+              <td>{{art.popularity}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf = "searchType == 'album'">
+  <div *ngIf = "resAlbum">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Artista</th>
+              <th scope="col">Album</th>
+              <th scope="col">Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let alb of resAlbum">
+              <th scope="row"><h4>{{alb.artists[0].name}}</h4></th>
+              <td><h4>{{alb.name}}</h4></td>
+              <td>{{alb.type}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
